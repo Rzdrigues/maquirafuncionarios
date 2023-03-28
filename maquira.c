@@ -143,7 +143,8 @@ int main() // função principal, menu do programa
 		printf("Escolha a opção desejada no menu:\n\n"); // diz para o usuário escolher uma opção
 		printf("\t1- Registrar funcionário\n"); // primeira opção, leva o usuário para registrar o funcionário
 		printf("\t2- Consultar funcionário\n"); // segunda opção, leva o usuário para consultar o funcionário
-		printf("\t3- Deletar funcionário\n\n"); // terceira opção, leva o usuário para deletar o funcionário
+		printf("\t3- Deletar funcionário\n"); // terceira opção, leva o usuário para deletar o funcionário
+		printf("\t4- Sair do programa\n\n"); // quarta opção, o usuário sai do sistema
 		printf("Digite aqui a opção: ");
 	
 		scanf("%d", &opcao); // para armazenar uma variável do tipo inteiro é usado o %d, o uso do "&" indica qual variável desejo guardar
@@ -162,6 +163,11 @@ int main() // função principal, menu do programa
 			
 			case 3: // se escolher a terceira opção:
 			deletar();
+			break;
+			
+			case 4: // se escolher a quarta opção:
+			printf("Até a próxima!");
+			return 0;
 			break;
 			
 			default: // // se escolher um número inválido:
