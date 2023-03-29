@@ -131,51 +131,69 @@ int main() // função principal, menu do programa
 {
 	int opcao=0; // definindo a variável
 	int x=1; // variável do laço de repetição
+	char usuario[10]= "a"; // variável para login
+	char senha[10]= "a";  // variável para senha
 	
-	for(x=1;x=1;) // dessa forma o laço de repetição fica eterno, ja que a entrada e saida do laço são iguais, além de não ter inclemento que seria dado por "x++"
-	{ // início da chave, engloba o que ficará dentro do laço
+	setlocale(LC_ALL, "Portuguese"); // dizendo para a biblioteca locale qual linguagem desejo
+	
+	printf("\t\t Controle de funcionários - Maquira \t\t\n\n");
+	printf("Faça o login como administrador.\n\n");
+	printf("Digite seu usuário:\n");
+	scanf("%s", usuario);
+	printf("Digite a sua senha:\n");
+	scanf("%s", senha);
 		
-		system("cls"); // função para limpar tela após usuário fazer a escolha
+	if(strcmp(senha, "admin") == 0 && strcmp(usuario, "admin") == 0) // se a senha e o usuário forem os corretos, no caso "admin", o acesso é permitido
+	{
+	
+		for(x=1;x=1;) // dessa forma o laço de repetição fica eterno, ja que a entrada e saida do laço são iguais, além de não ter inclemento que seria dado por "x++"
+		{ // início da chave, engloba o que ficará dentro do laço
 		
-		setlocale(LC_ALL, "Portuguese"); // dizendo para a biblioteca locale qual linguagem desejo
+			system("cls"); // função para limpar tela após usuário fazer a escolha
+		
+			setlocale(LC_ALL, "Portuguese"); // dizendo para a biblioteca locale qual linguagem desejo
 	
-		printf("\t\t Funcionários Maquira \t\t\n\n"); // printf envio esse texto para a tela do usuário
-		printf("Escolha a opção desejada no menu:\n\n"); // diz para o usuário escolher uma opção
-		printf("\t1- Registrar funcionário\n"); // primeira opção, leva o usuário para registrar o funcionário
-		printf("\t2- Consultar funcionário\n"); // segunda opção, leva o usuário para consultar o funcionário
-		printf("\t3- Deletar funcionário\n"); // terceira opção, leva o usuário para deletar o funcionário
-		printf("\t4- Sair do programa\n\n"); // quarta opção, o usuário sai do sistema
-		printf("Digite aqui a opção: ");
+			printf("\t\t Controle de funcionários - Maquira \t\t\n\n"); // printf envio esse texto para a tela do usuário
+			printf("Escolha a opção desejada no menu:\n\n"); // diz para o usuário escolher uma opção
+			printf("\t1- Registrar funcionário\n"); // primeira opção, leva o usuário para registrar o funcionário
+			printf("\t2- Consultar funcionário\n"); // segunda opção, leva o usuário para consultar o funcionário
+			printf("\t3- Deletar funcionário\n"); // terceira opção, leva o usuário para deletar o funcionário
+			printf("\t4- Sair do programa\n\n"); // quarta opção, o usuário sai do sistema
+			printf("Digite aqui a opção: ");
 	
-		scanf("%d", &opcao); // para armazenar uma variável do tipo inteiro é usado o %d, o uso do "&" indica qual variável desejo guardar
+			scanf("%d", &opcao); // para armazenar uma variável do tipo inteiro é usado o %d, o uso do "&" indica qual variável desejo guardar
 	
-		system("cls"); // função para limpar tela após usuário fazer a escolha
+			system("cls"); // função para limpar tela após usuário fazer a escolha
 	
-		switch(opcao)
-		{
-			case 1: // se escolher a primeira opção:
-			registrar();
-			break;
+			switch(opcao)
+			{
+				case 1: // se escolher a primeira opção:
+				registrar();
+				break;
 			
-			case 2: // se escolher a segunda opção:
-			consultar();
-			break;
+				case 2: // se escolher a segunda opção:
+				consultar();
+				break;
 			
-			case 3: // se escolher a terceira opção:
-			deletar();
-			break;
+				case 3: // se escolher a terceira opção:
+				deletar();
+				break;
 			
-			case 4: // se escolher a quarta opção:
-			printf("Até a próxima!");
-			return 0;
-			break;
+				case 4: // se escolher a quarta opção:
+				printf("Até a próxima!");
+				return 0;
+				break;
 			
-			default: // // se escolher um número inválido:
-			printf("Você escolheu uma opção indispoível, tente novamente!\n\n");
-			system("pause"); //faz a mensagem aparecer para o usuário até ele não querer mais
-			break;
-		}
+				default: // // se escolher um número inválido:
+				printf("Você escolheu uma opção indispoível, tente novamente!\n\n");
+				system("pause"); //faz a mensagem aparecer para o usuário até ele não querer mais
+				break;
+			}
 	
-	} // fim do laço
+		} // fim do laço
+	}
+	
+	else // se a senha estiver errada:
+		printf("O usuário ou a senha está incorreta. Acesso negado!");
 }
 
